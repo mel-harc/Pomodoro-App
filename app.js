@@ -1,6 +1,7 @@
 const startBtn = document.querySelector('.btn-start'); 
 const session = document.querySelector('.minutes');
 const seconds = document.querySelector('.seconds');
+const resetBtn = document.querySelector('.btn-reset');
 let myInterval;
 let isRunning = false;
 let totalSeconds;
@@ -41,4 +42,14 @@ const appTimer = () => {
     }
 };
 
+const resetTimer = () => {
+  clearInterval(myInterval);
+  session.textContent = '25';
+  seconds.textContent = '00';
+  startBtn.textContent = 'Start';
+  isRunning = false;
+  totalSeconds = null;
+};
+
 startBtn.addEventListener('click', appTimer);
+resetBtn.addEventListener('click', resetTimer);
